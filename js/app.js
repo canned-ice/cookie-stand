@@ -68,3 +68,14 @@ calculateHourly(seatacStore);
 calculateHourly(centerStore);
 calculateHourly(caphillStore);
 calculateHourly(alkiStore);
+
+var ulEl = document.createElement('ul');
+
+for (var j = 0; j < 15; j++) {
+  var liEl = document.createElement('li');
+  liEl.textContent = pikeStore.openHours[j];
+  ulEl.appendChild(liEl);
+}
+
+var hoursSection = document.getElementById('openHours');
+hoursSection.appendChild(ulEl);
