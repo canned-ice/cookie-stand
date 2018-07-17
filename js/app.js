@@ -10,14 +10,6 @@ var pikeStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
-  },
-  showStore: function() {
-    var ulElement = document.getElementById('hoursUl');
-    for (var i = 0; i < this.openHours[i]; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i], this.visitsHourly[i];
-      ulElement.appendChild(liEl);
-    }
   }
 };
 var seatacStore = {
@@ -29,14 +21,6 @@ var seatacStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
-  },
-  showStore: function() {
-    var ulElement = document.getElementById('hours');
-    for (var i = 0; i < this.openHours[i]; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i], this.visitsHourly[i];
-      ulElement.appendChild(liEl);
-    }
   }
 };
 var centerStore = {
@@ -48,14 +32,6 @@ var centerStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
-  },
-  showStore: function() {
-    var ulElement = document.getElementById('hours');
-    for (var i = 0; i < this.openHours[i]; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i], this.visitsHourly[i];
-      ulElement.appendChild(liEl);
-    }
   }
 };
 var caphillStore = {
@@ -67,14 +43,6 @@ var caphillStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
-  },
-  showStore: function() {
-    var ulElement = document.getElementById('hours');
-    for (var i = 0; i < this.openHours[i]; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i], this.visitsHourly[i];
-      ulElement.appendChild(liEl);
-    }
   }
 };
 var alkiStore = {
@@ -86,14 +54,6 @@ var alkiStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
-  },
-  showStore: function() {
-    var ulElement = document.getElementById('hoursUl');
-    for (var i = 0; i < this.openHours[i]; i++) {
-      var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i], this.visitsHourly[i];
-      ulElement.appendChild(liEl);
-    }
   }
 };
 var calculateHourly = function(store) {
@@ -111,20 +71,19 @@ calculateHourly(centerStore);
 calculateHourly(caphillStore);
 calculateHourly(alkiStore);
 
-pikeStore.showStore();
-seatacStore.showStore();
-centerStore.showStore();
-caphillStore.showStore();
-alkiStore.showStore();
-
-// var months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-var ulEl = document.createElement('ul');
-
-for(var i = 0; i < alkiStore.visitsHourly.length; i++) {
-  var liEl = document.createElement('li');
-  liEl.textContent = alkiStore.visitsHourly[i];
-  ulEl.appendChild(liEl);
+function displayStore(storeSelection) {
+  var ulEl = document.createElement('ul');
+  for(var i = 0; i < storeSelection.visitsHourly.length; i++) {
+    var liElement = document.createElement('li');
+    liElement.textContent = storeSelection.openHours[i] + ': ' + storeSelection.visitsHourly[i] + ' cookies';
+    ulEl.appendChild(liElement);
+  }
+  var listsSection = document.getElementById('lists'); listsSection.appendChild(ulEl);
 }
 
-var monthsSection = document.getElementById('months');
-monthsSection.appendChild(ulEl);
+// display lists
+displayStore(pikeStore);
+displayStore(seatacStore);
+displayStore(centerStore);
+displayStore(caphillStore);
+displayStore(alkiStore);
