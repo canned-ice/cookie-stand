@@ -96,9 +96,11 @@ var alkiStore = {
     }
   }
 };
-var calculateHourly = function(x) {
+var calculateHourly = function(store) {
   for (var i = 0; i < 15; i++) {
-    x.visitsHourly.push(x.randomVisits() * x.avgCookies);
+    var number = store.randomVisits() * store.avgCookies;
+    number = Math.floor(number);
+    store.visitsHourly.push(number);
   }
 };
 
@@ -114,3 +116,15 @@ seatacStore.showStore();
 centerStore.showStore();
 caphillStore.showStore();
 alkiStore.showStore();
+
+// var months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+var ulEl = document.createElement('ul');
+
+for(var i = 0; i < alkiStore.visitsHourly.length; i++) {
+  var liEl = document.createElement('li');
+  liEl.textContent = alkiStore.visitsHourly[i];
+  ulEl.appendChild(liEl);
+}
+
+var monthsSection = document.getElementById('months');
+monthsSection.appendChild(ulEl);
