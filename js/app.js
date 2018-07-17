@@ -10,6 +10,14 @@ var pikeStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
+  },
+  showStore: function() {
+    var ulElement = document.getElementById('hours');
+    for (var i = 0; i < this.openHours[i]; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      ulElement.appendChild(liEl);
+    }
   }
 };
 var seatacStore = {
@@ -21,6 +29,14 @@ var seatacStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
+  },
+  showStore: function() {
+    var ulElement = document.getElementById('hours');
+    for (var i = 0; i < this.openHours[i]; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      ulElement.appendChild(liEl);
+    }
   }
 };
 var centerStore = {
@@ -32,6 +48,14 @@ var centerStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
+  },
+  showStore: function() {
+    var ulElement = document.getElementById('hours');
+    for (var i = 0; i < this.openHours[i]; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      ulElement.appendChild(liEl);
+    }
   }
 };
 var caphillStore = {
@@ -43,6 +67,14 @@ var caphillStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
+  },
+  showStore: function() {
+    var ulElement = document.getElementById('hours');
+    for (var i = 0; i < this.openHours[i]; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      ulElement.appendChild(liEl);
+    }
   }
 };
 var alkiStore = {
@@ -54,10 +86,18 @@ var alkiStore = {
   visitsHourly: [],
   randomVisits: function() {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
+  },
+  showStore: function() {
+    var ulElement = document.getElementById('hours');
+    for (var i = 0; i < this.openHours[i]; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      ulElement.appendChild(liEl);
+    }
   }
 };
 var calculateHourly = function(x) {
-  for (var i = 0; i < 16; i++) {
+  for (var i = 0; i < 15; i++) {
     x.visitsHourly.push(x.randomVisits() * x.avgCookies);
   }
 };
@@ -69,13 +109,8 @@ calculateHourly(centerStore);
 calculateHourly(caphillStore);
 calculateHourly(alkiStore);
 
-var ulEl = document.createElement('ul');
-
-for (var j = 0; j < 15; j++) {
-  var liEl = document.createElement('li');
-  liEl.textContent = pikeStore.openHours[j];
-  ulEl.appendChild(liEl);
-}
-
-var hoursSection = document.getElementById('openHours');
-hoursSection.appendChild(ulEl);
+pikeStore.showStore();
+seatacStore.showStore();
+centerStore.showStore();
+caphillStore.showStore();
+alkiStore.showStore();
