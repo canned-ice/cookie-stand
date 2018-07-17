@@ -28,9 +28,9 @@ Store.prototype.combo = function() { // creates random salesHourly for calculati
   titleElement.textContent = this.displayName;
   var ulElement = document.createElement('ul');
   ulElement.appendChild(titleElement);
-  for(var i = 0; i < this.salesHourly.length; i++) {
+  for(var j = 0; j < this.salesHourly.length; j++) {
     var liElement = document.createElement('li');
-    liElement.textContent = hours[i] + ': ' + this.salesHourly[i] + ' cookies';
+    liElement.textContent = hours[j] + ': ' + this.salesHourly[j] + ' cookies';
     ulElement.appendChild(liElement);
   }
   var listsSection = document.getElementById('lists');
