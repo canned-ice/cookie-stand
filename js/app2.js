@@ -44,9 +44,9 @@ var tableDisplay = function() {
   var thElementEmpty = document.createElement('th');
   thElementEmpty.textContent = '';
   trElement.appendChild(thElementEmpty);
-  for(var k = 0; k < hours.length; k++) {
+  for(var j = 0; j < hours.length; j++) {
     var thElement = document.createElement('th');
-    thElement.textContent = hours[k];
+    thElement.textContent = hours[j];
     trElement.appendChild(thElement);
   }
   for(var k = 0; k < allStores.length; k++) {
