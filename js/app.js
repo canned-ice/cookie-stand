@@ -27,13 +27,13 @@ var pikeStore = {
     var titleElement = document.createElement('h3');
     titleElement.textContent = this.displayName;
     var ulElement = document.createElement('ul');
+    ulElement.appendChild(titleElement);
     for(var i = 0; i < this.salesHourly.length; i++) {
       var liElement = document.createElement('li');
       liElement.textContent = this.openHours[i] + ': ' + this.salesHourly[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
     var listsSection = document.getElementById('lists');
-    listsSection.appendChild(titleElement);
     listsSection.appendChild(ulElement);
   }
 };
@@ -63,13 +63,13 @@ var seatacStore = {
     var titleElement = document.createElement('h3');
     titleElement.textContent = this.displayName;
     var ulElement = document.createElement('ul');
+    ulElement.appendChild(titleElement);
     for(var i = 0; i < this.salesHourly.length; i++) {
       var liElement = document.createElement('li');
       liElement.textContent = this.openHours[i] + ': ' + this.salesHourly[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
     var listsSection = document.getElementById('lists');
-    listsSection.appendChild(titleElement);
     listsSection.appendChild(ulElement);
   }
 };
@@ -99,13 +99,13 @@ var centerStore = {
     var titleElement = document.createElement('h3');
     titleElement.textContent = this.displayName;
     var ulElement = document.createElement('ul');
+    ulElement.appendChild(titleElement);
     for(var i = 0; i < this.salesHourly.length; i++) {
       var liElement = document.createElement('li');
       liElement.textContent = this.openHours[i] + ': ' + this.salesHourly[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
     var listsSection = document.getElementById('lists');
-    listsSection.appendChild(titleElement);
     listsSection.appendChild(ulElement);
   }
 };
@@ -135,13 +135,13 @@ var caphillStore = {
     var titleElement = document.createElement('h3');
     titleElement.textContent = this.displayName;
     var ulElement = document.createElement('ul');
+    ulElement.appendChild(titleElement);
     for(var i = 0; i < this.salesHourly.length; i++) {
       var liElement = document.createElement('li');
       liElement.textContent = this.openHours[i] + ': ' + this.salesHourly[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
     var listsSection = document.getElementById('lists');
-    listsSection.appendChild(titleElement);
     listsSection.appendChild(ulElement);
   }
 };
@@ -171,13 +171,13 @@ var alkiStore = {
     var titleElement = document.createElement('h3');
     titleElement.textContent = this.displayName;
     var ulElement = document.createElement('ul');
+    ulElement.appendChild(titleElement);
     for(var i = 0; i < this.salesHourly.length; i++) {
       var liElement = document.createElement('li');
       liElement.textContent = this.openHours[i] + ': ' + this.salesHourly[i] + ' cookies';
       ulElement.appendChild(liElement);
     }
     var listsSection = document.getElementById('lists');
-    listsSection.appendChild(titleElement);
     listsSection.appendChild(ulElement);
   }
 };
