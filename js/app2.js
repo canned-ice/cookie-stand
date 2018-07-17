@@ -24,17 +24,43 @@ Store.prototype.combo = function() { // creates random salesHourly for calculati
     return accumulator + currentValue;
   }, 0);
   this.salesHourly.push(sum); // pushes sum of array to last index position
-  var titleElement = document.createElement('h3');
-  titleElement.textContent = this.displayName;
-  var ulElement = document.createElement('ul');
-  ulElement.appendChild(titleElement);
-  for(var j = 0; j < this.salesHourly.length; j++) {
-    var liElement = document.createElement('li');
-    liElement.textContent = hours[j] + ': ' + this.salesHourly[j] + ' cookies';
-    ulElement.appendChild(liElement);
+//   var titleElement = document.createElement('h3');
+//   titleElement.textContent = this.displayName;
+//   var ulElement = document.createElement('ul');
+//   ulElement.appendChild(titleElement);
+//   for(var j = 0; j < this.salesHourly.length; j++) {
+//     var liElement = document.createElement('li');
+//     liElement.textContent = hours[j] + ': ' + this.salesHourly[j] + ' cookies';
+//     ulElement.appendChild(liElement);
+//   }
+//   var listsSection = document.getElementById('lists');
+//   listsSection.appendChild(ulElement);
+};
+
+var tableDisplay = function() {
+  var salesTable = document.getElementById('salesTable');
+  var trElement = document.createElement('tr');
+  salesTable.appendChild(trElement);
+  var thElementEmpty = document.createElement('th');
+  thElementEmpty.textContent = '';
+  trElement.appendChild(thElementEmpty);
+  for(var k = 0; k < hours.length; k++) {
+    var thElement = document.createElement('th');
+    thElement.textContent = hours[k];
+    trElement.appendChild(thElement);
   }
-  var listsSection = document.getElementById('lists');
-  listsSection.appendChild(ulElement);
+  for(var k = 0; k < allStores.length; k++) {
+    var trElement2 = document.createElement('tr');
+    salesTable.appendChild(trElement2);
+    var thName = document.createElement('th');
+    thName.textContent = pike.displayName;
+    trElement2.appendChild(thName);
+    for(var m = 0; m < hours.length; m++) {
+      var tdElement = document.createElement('td');
+      tdElement.textContent = pike.salesHourly[m];
+      trElement2.appendChild(tdElement);
+    }
+  }
 };
 
 // Transformers, ROLL OUT
@@ -49,3 +75,4 @@ seatac.combo();
 center.combo();
 caphill.combo();
 alki.combo();
+tableDisplay();
