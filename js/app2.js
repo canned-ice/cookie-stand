@@ -24,17 +24,6 @@ Store.prototype.combo = function() { // creates random salesHourly for calculati
     return accumulator + currentValue;
   }, 0);
   this.salesHourly.push(sum); // pushes sum of array to last index position
-//   var titleElement = document.createElement('h3');
-//   titleElement.textContent = this.displayName;
-//   var ulElement = document.createElement('ul');
-//   ulElement.appendChild(titleElement);
-//   for(var j = 0; j < this.salesHourly.length; j++) {
-//     var liElement = document.createElement('li');
-//     liElement.textContent = hours[j] + ': ' + this.salesHourly[j] + ' cookies';
-//     ulElement.appendChild(liElement);
-//   }
-//   var listsSection = document.getElementById('lists');
-//   listsSection.appendChild(ulElement);
 };
 
 var tableDisplay = function() {
