@@ -184,8 +184,13 @@ var alkiStore = {
 
 
 // display lists (which also randomizes hourly visits AND sales per hour based on those numbers)
-pikeStore.displayStore();
-seatacStore.displayStore();
-centerStore.displayStore();
-caphillStore.displayStore();
-alkiStore.displayStore();
+// pikeStore.displayStore();
+// seatacStore.displayStore();
+// centerStore.displayStore();
+// caphillStore.displayStore();
+// alkiStore.displayStore();
+
+var stores = [pikeStore, seatacStore, centerStore, caphillStore, alkiStore];
+for (var x = 0; x < stores.length; x++) {
+  stores[x].displayStore();
+}
