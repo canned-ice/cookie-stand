@@ -12,10 +12,10 @@ var pikeStore = {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
   },
   showStore: function() {
-    var ulElement = document.getElementById('hours');
+    var ulElement = document.getElementById('hoursUl');
     for (var i = 0; i < this.openHours[i]; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      liEl.textContent = this.openHours[i], this.visitsHourly[i];
       ulElement.appendChild(liEl);
     }
   }
@@ -34,7 +34,7 @@ var seatacStore = {
     var ulElement = document.getElementById('hours');
     for (var i = 0; i < this.openHours[i]; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      liEl.textContent = this.openHours[i], this.visitsHourly[i];
       ulElement.appendChild(liEl);
     }
   }
@@ -53,7 +53,7 @@ var centerStore = {
     var ulElement = document.getElementById('hours');
     for (var i = 0; i < this.openHours[i]; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      liEl.textContent = this.openHours[i], this.visitsHourly[i];
       ulElement.appendChild(liEl);
     }
   }
@@ -72,7 +72,7 @@ var caphillStore = {
     var ulElement = document.getElementById('hours');
     for (var i = 0; i < this.openHours[i]; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      liEl.textContent = this.openHours[i], this.visitsHourly[i];
       ulElement.appendChild(liEl);
     }
   }
@@ -88,10 +88,10 @@ var alkiStore = {
     return Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour +1)) + this.minCustomerHour;
   },
   showStore: function() {
-    var ulElement = document.getElementById('hours');
+    var ulElement = document.getElementById('hoursUl');
     for (var i = 0; i < this.openHours[i]; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = this.openHours[i] + this.visitsHourly[i];
+      liEl.textContent = this.openHours[i], this.visitsHourly[i];
       ulElement.appendChild(liEl);
     }
   }
