@@ -42,22 +42,22 @@ var tableDisplay = function() {
   var trElement = document.createElement('tr');
   salesTable.appendChild(trElement);
   var thElementEmpty = document.createElement('th');
-  thElementEmpty.textContent = '';
+  thElementEmpty.textContent = ''; // empty first cell of header
   trElement.appendChild(thElementEmpty);
-  for(var j = 0; j < hours.length; j++) {
+  for(var j = 0; j < hours.length; j++) { // adding hours header cells
     var thElement = document.createElement('th');
     thElement.textContent = hours[j];
     trElement.appendChild(thElement);
   }
-  for(var k = 0; k < allStores.length; k++) {
+  for(var k = 0; k < allStores.length; k++) { // adding data for store
     var trElement2 = document.createElement('tr');
     salesTable.appendChild(trElement2);
-    var thName = document.createElement('th');
-    thName.textContent = pike.displayName;
+    var thName = document.createElement('th'); // adding displayName of store as 1st row header
+    thName.textContent = allStores[k].displayName;
     trElement2.appendChild(thName);
     for(var m = 0; m < hours.length; m++) {
-      var tdElement = document.createElement('td');
-      tdElement.textContent = pike.salesHourly[m];
+      var tdElement = document.createElement('td'); // adding data of store in row
+      tdElement.textContent = allStores[k].salesHourly[m];
       trElement2.appendChild(tdElement);
     }
   }
