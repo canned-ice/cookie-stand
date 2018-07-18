@@ -65,7 +65,6 @@ var center = new Store('Seattle Center', 11, 38, 3.7, []);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3, []);
 var alki = new Store('Alki', 2, 16, 4.6, []);
 
-
 pike.dataGen();
 seatac.dataGen();
 center.dataGen();
