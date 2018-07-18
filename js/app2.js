@@ -13,7 +13,7 @@ function Store(displayName, minCustomerHour, maxCustomerHour, avgCookies) {
   allStores.push(this);
 }
 
-Store.prototype.combo = function() { // creates random salesHourly for calculating fake sales
+Store.prototype.dataGen = function() { // creates random salesHourly for calculating fake sales
   for (var i = 1; i < hours.length; i++) {
     var randomVisits = Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour)) + this.minCustomerHour;
     var number = randomVisits * this.avgCookies;
@@ -27,28 +27,34 @@ Store.prototype.combo = function() { // creates random salesHourly for calculati
 };
 
 var tableDisplay = function() {
-  var salesTable = document.getElementById('salesTable');
-  var trElement = document.createElement('tr');
-  salesTable.appendChild(trElement);
-  var thElementEmpty = document.createElement('th');
+  var sectionTable = document.getElementById('salesTable'); // find table id
+  var salesTable = document.createElement('table'); // create a table element
+  salesTable.setAttribute('id', 'sales'); // sets id of table to 'sales' for use later
+  sectionTable.appendChild(salesTable); // append new table to section
+  var trElement = document.createElement('tr'); // create a row element
+  salesTable.appendChild(trElement); // append new row to table
+  var thElementEmpty = document.createElement('th'); // create a table header(cell)
   thElementEmpty.textContent = ''; // empty first cell of header
-  trElement.appendChild(thElementEmpty);
+  trElement.appendChild(thElementEmpty); // append empty cell to table
   for(var j = 0; j < hours.length; j++) { // adding hours header cells
-    var thElement = document.createElement('th');
-    thElement.textContent = hours[j];
-    trElement.appendChild(thElement);
+    var thElement = document.createElement('th'); // create new table header(cell)
+    thElement.textContent = hours[j]; // fill with hours
+    trElement.appendChild(thElement); // append hours cell to table header
   }
-  for(var k = 0; k < allStores.length; k++) { // adding data for store
-    var trElement2 = document.createElement('tr');
-    salesTable.appendChild(trElement2);
-    var thName = document.createElement('th'); // adding displayName of store as 1st row header
-    thName.textContent = allStores[k].displayName;
-    trElement2.appendChild(thName);
-    for(var m = 0; m < hours.length; m++) {
-      var tdElement = document.createElement('td'); // adding data of store in row
-      tdElement.textContent = allStores[k].salesHourly[m];
-      trElement2.appendChild(tdElement);
-    }
+};
+
+Store.prototype.tableFill = function() {
+  var salesTable = document.getElementById('sales');
+  // for(var k = 0; k < allStores.length; k++) { // adding data for store
+  var trElement2 = document.createElement('tr');
+  salesTable.appendChild(trElement2);
+  var thName = document.createElement('th'); // adding displayName of store as 1st row header
+  thName.textContent = this.displayName;
+  trElement2.appendChild(thName);
+  for(var m = 0; m < hours.length; m++) {
+    var tdElement = document.createElement('td'); // adding data of store in row
+    tdElement.textContent = this.salesHourly[m];
+    trElement2.appendChild(tdElement);
   }
 };
 
@@ -59,9 +65,15 @@ var center = new Store('Seattle Center', 11, 38, 3.7, []);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3, []);
 var alki = new Store('Alki', 2, 16, 4.6, []);
 
-pike.combo();
-seatac.combo();
-center.combo();
-caphill.combo();
-alki.combo();
+
+pike.dataGen();
+seatac.dataGen();
+center.dataGen();
+caphill.dataGen();
+alki.dataGen();
 tableDisplay();
+pike.tableFill();
+seatac.tableFill();
+center.tableFill();
+caphill.tableFill();
+alki.tableFill();
