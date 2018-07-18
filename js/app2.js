@@ -59,8 +59,8 @@ Store.prototype.tableFill = function() {
 };
 
 // Transformers, ROLL OUT
-var pike = new Store('1st and Pike', 23, 65, 6.3, []);
-var seatac = new Store('SeaTac Airport', 3, 24, 1.2, []);
+var pike = new Store('1st and Pike', 23, 65, 6.3);
+var seatac = new Store('SeaTac Airport', 3, 24, 1.2,);
 var center = new Store('Seattle Center', 11, 38, 3.7, []);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3, []);
 var alki = new Store('Alki', 2, 16, 4.6, []);
