@@ -13,7 +13,7 @@ function Store(displayName, minCustomerHour, maxCustomerHour, avgCookies) {
   allStores.push(this);
 }
 
-Store.prototype.combo = function() { // creates random salesHourly for calculating fake sales
+Store.prototype.render = function() { // creates random salesHourly for calculating fake sales
   for (var i = 1; i < hours.length; i++) {
     var randomVisits = Math.floor(Math.random() * (this.maxCustomerHour - this.minCustomerHour)) + this.minCustomerHour;
     var number = randomVisits * this.avgCookies;
@@ -53,15 +53,18 @@ var tableDisplay = function() {
 };
 
 // Transformers, ROLL OUT
-var pike = new Store('1st and Pike', 23, 65, 6.3, []);
-var seatac = new Store('SeaTac Airport', 3, 24, 1.2, []);
+var pike = new Store('1st and Pike', 23, 65, 6.3);
+var seatac = new Store('SeaTac Airport', 3, 24, 1.2,);
 var center = new Store('Seattle Center', 11, 38, 3.7, []);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3, []);
 var alki = new Store('Alki', 2, 16, 4.6, []);
 
-pike.combo();
-seatac.combo();
-center.combo();
-caphill.combo();
-alki.combo();
+pike.render();
+seatac.render();
+center.render();
+caphill.render();
+alki.render();
 tableDisplay();
+
+// TO DO: separate functions out so end up with a header function, then a funtion to add each object instance
+// also additional function for the footer
