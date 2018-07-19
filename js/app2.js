@@ -61,16 +61,30 @@ var allStoreTotals = [];
 
 var hourTotal = function(whatHour) {
   var timeSum = 0;
-  for (var z = 0; z < allStores.length; z++) {
+  var sumZ = 0;
+  for (var z = 0; z < allStores.length; z++) { // allStores.length = 5
     var timeZ = allStores[z];
-    var sumZ = timeZ.salesHourly[whatHour] + timeSum;
-    allStoreTotals.push(sumZ);
+    var valueZ = timeZ.salesHourly[whatHour];
+    sumZ = valueZ + timeSum;
+    timeSum = valueZ + timeSum;
   }
+  allStoreTotals.push(sumZ);
 };
 
 var allHours = function() {
   for (var v = 0; v < hours.length; v++) {
     hourTotal(v);
+  }
+  var totalRow = document.createElement('tr');
+  var tableElement = document.getElementById('sales');
+  tableElement.appendChild(totalRow);
+  var totalHeader = document.createElement('th');
+  totalHeader.textContent = 'Total',
+  totalRow.appendChild(totalHeader);
+  for(var u = 0; u < allStoreTotals.length; u++) {
+    var totalCell = document.createElement('td');
+    totalCell.textContent = allStoreTotals[u];
+    totalRow.appendChild(totalCell);
   }
 };
 
