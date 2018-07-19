@@ -4,8 +4,8 @@ var allStores = [];
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
 
 // constructor for ze stores
-function Store(displayName, minCustomerHour, maxCustomerHour, avgCookies) {
-  this.displayName = displayName;
+function Store(name, minCustomerHour, maxCustomerHour, avgCookies) {
+  this.name = name;
   this.minCustomerHour = minCustomerHour;
   this.maxCustomerHour = maxCustomerHour;
   this.avgCookies = avgCookies;
@@ -30,8 +30,8 @@ Store.prototype.tableFill = function() {
   // for(var k = 0; k < allStores.length; k++) { // adding data for store
   var trElement2 = document.createElement('tr');
   salesTable.appendChild(trElement2);
-  var thName = document.createElement('th'); // adding displayName of store as 1st row header
-  thName.textContent = this.displayName;
+  var thName = document.createElement('th'); // adding name of store as 1st row header
+  thName.textContent = this.name;
   trElement2.appendChild(thName);
   for(var m = 0; m < hours.length; m++) {
     var tdElement = document.createElement('td'); // adding data of store in row
@@ -45,8 +45,10 @@ var tableDisplay = function() {
   var salesTable = document.createElement('table'); // create a table element
   salesTable.setAttribute('id', 'sales'); // sets id of table to 'sales' for use later
   sectionTable.appendChild(salesTable); // append new table to section
+  var theadElement = document.createElement('thead');
+  salesTable.appendChild(theadElement);
   var trElement = document.createElement('tr'); // create a row element
-  salesTable.appendChild(trElement); // append new row to table
+  theadElement.appendChild(trElement); // append new row to table
   var thElementEmpty = document.createElement('th'); // create a table header(cell)
   thElementEmpty.textContent = ''; // empty first cell of header
   trElement.appendChild(thElementEmpty); // append empty cell to table
@@ -75,9 +77,11 @@ var allHours = function() {
   for (var v = 0; v < hours.length; v++) {
     hourTotal(v);
   }
+  var tfootElement = document.createElement('tfoot');
   var totalRow = document.createElement('tr');
   var tableElement = document.getElementById('sales');
-  tableElement.appendChild(totalRow);
+  tableElement.appendChild(tfootElement);
+  tfootElement.appendChild(totalRow);
   var totalHeader = document.createElement('th');
   totalHeader.textContent = 'Total',
   totalRow.appendChild(totalHeader);
@@ -95,6 +99,27 @@ var center = new Store('Seattle Center', 11, 38, 3.7, []);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3, []);
 var alki = new Store('Alki', 2, 16, 4.6, []);
 
+var formSubmit = document.getElementById('submitButton');
+var clicked = function() {
+};
+formSubmit.addEventListener('click', clicked);
+
+var formElement = document.getElementById('newStoreForm');
+formElement.addEventListener('submit', function(event) {
+  event.preventDefault();
+  console.log(allStores.length);
+
+  var name = event.target.name.value;
+  var minCustomerHour = event.target.minCustomerHour.value;
+  var maxCustomerHour = event.target.maxCustomerHour.value;
+  var avgCookies = event.target.avgCookies.value;
+
+  var newStore = new Store(name, minCustomerHour, maxCustomerHour, avgCookies);
+  console.log(allStores);
+  newStore.dataGen();
+  newStore.tableFill();
+});
+
 tableDisplay();
 
 for (var store of allStores) {
@@ -106,4 +131,5 @@ console.log(seatac);
 console.log(center);
 console.log(caphill);
 console.log(alki);
+
 allHours();
