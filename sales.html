@@ -11,18 +11,18 @@
         </header>
         <main id="main-content" class="container">
             <h2 class="title">Hourly Sales of Salmon Cookies</h2>
-            <section id="form">
+            <section class="form" id="form">
                 <form id="newStoreForm">
                     <input name="name" type="text" placeholder="Enter store name here">
-                    <input name="minCustomerHour" type="number" placeholder="Min customers per hour">
-                    <input name="maxCustomerHour" type="number" placeholder="Max customers per hour">
-                    <input name="avgCookies" type="number" step="0.1" placeholder="Average cookie sales per customer">
+                    <input class="number" name="minCustomerHour" type="number" placeholder="Min customers per hour">
+                    <input class="number" name="maxCustomerHour" type="number" placeholder="Max customers per hour">
+                    <input class="number" name="avgCookies" type="number" step="0.1" placeholder="Average cookie sales per customer">
                     <button id="submitButton" type="submit">submit</button>
                 </form>
             </section>
-            <section id="salesTable"></section>
+            <section class="tableSection" id="salesTable"></section>
         </main>
-        <footer></footer>
+        <footer>C Thomas, 2018</footer>
         <script src="js/app2.js"></script>
     </body>
 </html>
