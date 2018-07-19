@@ -9,13 +9,17 @@
             <h1>Pat's Sales Dashboard</h1>
         </header>
         <main id="main-content" class="container">
-            <section id="lists" class="container">
-                <h2 class="title">Hourly Sales of Salmon Cookies</h2>
+            <h2 class="title">Hourly Sales of Salmon Cookies</h2>
+            <section id="form">
+                <form id="newStoreForm">
+                    <input name="name" type="text" placeholder="Enter store name here">
+                    <input name="minCustomerHour" type="number" placeholder="Min customers per hour">
+                    <input name="maxCustomerHour" type="number" placeholder="Max customers per hour">
+                    <input name="avgCookies" type="number" placeholder="Average cookie sales per customer">
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
             </section>
-            <section class="table">
-                <table id="salesTable">
-                </table>
-            </section>
+            <section id="salesTable"></section>
         </main>
         <footer></footer>
         <script src="js/app2.js"></script>
