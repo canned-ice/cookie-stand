@@ -11,6 +11,12 @@ h2 {
   background: rgb(242,204,103);
 }
 
+h3 {
+  display: inline;
+  color: rgb(95,5,31);
+  font-family: 'Georgia', serif;
+}
+
 h1, h2 {
   color: rgb(95,5,31);
   font-family: 'Pacifico', cursive;
@@ -34,15 +40,20 @@ input {
   border: 5px solid rgb(244,0,52);
   margin: 5px;
   padding: 2px;
+  box-shadow: 5px 5px 5px #777777;
 }
 
 input.number {
   width: 10%;
 }
 
+.container {
+  width: 100%;
+}
+
 #salesTable {
-  width: 950px;
   padding: 1em;
+  margin: 0 auto;
 }
 
 table {
@@ -51,6 +62,13 @@ table {
   font-family: 'Helvetica', sans-serif;
   font-size: 1.5em;
   background-color: rgb(242,204,103);
+}
+
+button {
+  height: 30px;
+  color: rgb(95,5,31);
+  background-color: rgb(242,204,103);
+  box-shadow: 5px 5px 5px #777777;
 }
 
 th {
@@ -77,4 +95,8 @@ tfoot * {
 footer {
   position: fixed;
   bottom: 0;
+  font-family: 'Helvetica', sans-serif;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: rgb(95,5,31);
 }
