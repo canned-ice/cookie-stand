@@ -25,6 +25,20 @@ Store.prototype.dataGen = function() { // creates random salesHourly for calcula
   }, 0);
   this.salesHourly.push(sum); // pushes sum of array to last index position
 };
+Store.prototype.tableFill = function() {
+  var salesTable = document.getElementById('sales');
+  // for(var k = 0; k < allStores.length; k++) { // adding data for store
+  var trElement2 = document.createElement('tr');
+  salesTable.appendChild(trElement2);
+  var thName = document.createElement('th'); // adding displayName of store as 1st row header
+  thName.textContent = this.displayName;
+  trElement2.appendChild(thName);
+  for(var m = 0; m < hours.length; m++) {
+    var tdElement = document.createElement('td'); // adding data of store in row
+    tdElement.textContent = this.salesHourly[m];
+    trElement2.appendChild(tdElement);
+  }
+};
 
 var tableDisplay = function() {
   var sectionTable = document.getElementById('salesTable'); // find table id
@@ -43,45 +57,39 @@ var tableDisplay = function() {
   }
 };
 
-Store.prototype.tableFill = function() {
-  var salesTable = document.getElementById('sales');
-  // for(var k = 0; k < allStores.length; k++) { // adding data for store
-  var trElement2 = document.createElement('tr');
-  salesTable.appendChild(trElement2);
-  var thName = document.createElement('th'); // adding displayName of store as 1st row header
-  thName.textContent = this.displayName;
-  trElement2.appendChild(thName);
-  for(var m = 0; m < hours.length; m++) {
-    var tdElement = document.createElement('td'); // adding data of store in row
-    tdElement.textContent = this.salesHourly[m];
-    trElement2.appendChild(tdElement);
+var allStoreTotals = [];
+
+var hourTotal = function(whatHour) {
+  var timeSum = 0;
+  for (var z = 0; z < allStores.length; z++) {
+    var timeZ = allStores[z];
+    var sumZ = timeZ.salesHourly[whatHour] + timeSum;
+    allStoreTotals.push(sumZ);
+  }
+};
+
+var allHours = function() {
+  for (var v = 0; v < hours.length; v++) {
+    hourTotal(v);
   }
 };
 
 // Transformers, ROLL OUT
 var pike = new Store('1st and Pike', 23, 65, 6.3);
-var seatac = new Store('SeaTac Airport', 3, 24, 1.2,);
+var seatac = new Store('SeaTac Airport', 3, 24, 1.2);
 var center = new Store('Seattle Center', 11, 38, 3.7, []);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3, []);
 var alki = new Store('Alki', 2, 16, 4.6, []);
 
-for (var store of allStores) {
-  store.dataGen();
-  console.log('done this');
-}
-// pike.dataGen();
-// seatac.dataGen();
-// center.dataGen();
-// caphill.dataGen();
-// alki.dataGen();
 tableDisplay();
 
 for (var store of allStores) {
+  store.dataGen();
   store.tableFill();
-  console.log('done that');
 }
-// pike.tableFill();
-// seatac.tableFill();
-// center.tableFill();
-// caphill.tableFill();
-// alki.tableFill();
+console.log(pike); // eslint won't shut up about these variables
+console.log(seatac);
+console.log(center);
+console.log(caphill);
+console.log(alki);
+allHours();
