@@ -1,8 +1,17 @@
+* {
+  background: rgb(117,186,168);
+}
 
+h1 {
+  font-size: 50pt;
+}
 
-/* Colormind colors:
-33312A
-A55E43
-C88C58
-CDBAAF
-A2A490 */
+h1, h2 {
+  color: rgb(95,5,31);
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+p {
+  background: rgb(243,130,100);
+}
