@@ -24,3 +24,25 @@ p {
   padding: 2em;
   height: 2em;
 }
+
+#salesTable {
+  width: auto;
+  margin-left: 15%;
+  padding: 1em;
+}
+
+table {
+  border: 5px solid rgb(243,130,100);
+  padding: 1em;
+  font-family: 'Helvetica', sans-serif;
+}
+
+th {
+  font-family: 'Georgia', serif;
+  padding: 5px;
+}
+
+td {
+  text-align: center;
+  padding: 5px;
+}
