@@ -61,27 +61,26 @@ var tableDisplay = function() {
 
 var allStoreTotals = [];
 
-var hourTotal = function(whatHour) {
-  var timeSum = 0;
-  var sumZ = 0;
-  for (var z = 0; z < allStores.length; z++) { // allStores.length = 5
-    var timeZ = allStores[z];
-    var valueZ = timeZ.salesHourly[whatHour];
-    sumZ = valueZ + timeSum;
-    timeSum = valueZ + timeSum;
-  }
-  allStoreTotals.push(sumZ);
-};
-
-var allHours = function() {
-  for (var v = 0; v < hours.length; v++) {
-    hourTotal(v);
-  }
+var createTotalRow = function() {
+  var hourTotal = function(whatHour) {
+    var timeSum = 0;
+    var sumZ = 0;
+    for (var z = 0; z < allStores.length; z++) { // allStores.length = 5
+      var timeZ = allStores[z];
+      var valueZ = timeZ.salesHourly[whatHour];
+      sumZ = valueZ + timeSum;
+      timeSum = valueZ + timeSum;
+    }
+    allStoreTotals.push(sumZ);
+  };
   var tfootElement = document.createElement('tfoot');
   var totalRow = document.createElement('tr');
   var tableElement = document.getElementById('sales');
   tableElement.appendChild(tfootElement);
   tfootElement.appendChild(totalRow);
+  for (var v = 0; v < hours.length; v++) {
+    hourTotal(v);
+  }
   var totalHeader = document.createElement('th');
   totalHeader.textContent = 'Total',
   totalRow.appendChild(totalHeader);
@@ -90,7 +89,16 @@ var allHours = function() {
     totalCell.textContent = allStoreTotals[u];
     totalRow.appendChild(totalCell);
   }
+  totalRow.setAttribute('id', 'total-row');
 };
+
+function nukeTotalRow() {
+  var totalRow = document.getElementById('total-row');
+  if (totalRow) {
+    totalRow.remove();
+  }
+  allStoreTotals = [];
+}
 
 // Transformers, ROLL OUT
 var pike = new Store('1st and Pike', 23, 65, 6.3);
@@ -108,7 +116,7 @@ var formElement = document.getElementById('newStoreForm');
 formElement.addEventListener('submit', function(event) {
   event.preventDefault();
   console.log(allStores.length);
-
+  nukeTotalRow();
   var name = event.target.name.value;
   var minCustomerHour = event.target.minCustomerHour.value;
   var maxCustomerHour = event.target.maxCustomerHour.value;
@@ -118,6 +126,7 @@ formElement.addEventListener('submit', function(event) {
   console.log(allStores);
   newStore.dataGen();
   newStore.tableFill();
+  createTotalRow();
 });
 
 tableDisplay();
@@ -132,4 +141,4 @@ console.log(center);
 console.log(caphill);
 console.log(alki);
 
-allHours();
+createTotalRow();

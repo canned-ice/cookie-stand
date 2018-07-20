@@ -3,6 +3,7 @@
     <head>
         <title>Sales Dashboard - Pat's Salmon Cookies Shop</title>
         <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -10,18 +11,25 @@
         </header>
         <main id="main-content" class="container">
             <h2 class="title">Hourly Sales of Salmon Cookies</h2>
-            <section id="form">
+            <section class="form" id="form">
+                <h3 class="form">Enter new store information here:</h3>
                 <form id="newStoreForm">
                     <input name="name" type="text" placeholder="Enter store name here">
-                    <input name="minCustomerHour" type="number" placeholder="Min customers per hour">
-                    <input name="maxCustomerHour" type="number" placeholder="Max customers per hour">
-                    <input name="avgCookies" type="number" placeholder="Average cookie sales per customer">
-                    <button id="submitButton" type="submit">Submit</button>
+                    <input class="number" name="minCustomerHour" type="number" placeholder="Min Customers">
+                    <input class="number" name="maxCustomerHour" type="number" placeholder="Max Customers">
+                    <input class="number" name="avgCookies" type="number" step="0.1" placeholder="Avg sales">
+                    <button id="submitButton" type="submit">submit</button>
                 </form>
             </section>
-            <section id="salesTable"></section>
+            <section class="tableSection" id="salesTable"></section>
+            <section class="fish">
+                <figure>
+                    <img src="imgs/salmon.png">
+                    <figcaption>The mighty salmon</figcaption>
+                </figure>
+            </section>
         </main>
-        <footer></footer>
+        <footer>&copy; CThomas, 2018</footer>
         <script src="js/app2.js"></script>
     </body>
 </html>
