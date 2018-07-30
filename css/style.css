@@ -138,20 +138,32 @@ footer {
 
 .main nav {
   width: 100%;
-  outline: dotted blue 3px;
   margin: 0;
 }
 
 .main ul li {
   display: inline-block;
   width: 10%;
-  outline: dotted red 3px;
-  margin: 0 1%;
+  margin: 0 1% 10px 1%;
   text-align: center;
 }
 
-.main > main {
-  outline: dotted yellow 3px;
+#about-us > img {
+  width: 60%;
+  float: left;
+}
+
+#merch > img {
+  width: 150px;
+  height: 150px;
+}
+
+#events > img {
+  float: right;
+}
+
+#locations {
+  clear: right;
 }
 
 footer > img {
